@@ -89,21 +89,21 @@
                             <p style="text-align: center">Apple</p>
                             <img src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="apple-qty" name="apple-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
+                                <input type="text" class="form-control form-control-sm" id="apple-qty" name="apple-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
                             </div>
                         </div>
                         <div class="card" style="padding: 2%">
                             <p style="text-align: center">Orange</p>
                             <img src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="orange-qty" name="orange-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
+                                <input type="text" class="form-control form-control-sm" id="orange-qty" name="orange-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
                             </div>
                         </div>
                         <div class="card" style="padding: 2%">
                             <p style="text-align: center">Banana</p>
                             <img src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="banana-qty" name="banana-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
+                                <input type="text" class="form-control form-control-sm" id="banana-qty" name="banana-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
                             </div>
                         </div>
                     </div>
@@ -191,13 +191,13 @@
             }
         }
 
-        function updateAmount() {
+        function updateAmount(inputCheck) {
             document.getElementById("welcome-msg").className = "alert alert-success collapse";   
             let appleAmount = document.getElementById("apple-qty").value;
             let orangeAmount = document.getElementById("orange-qty").value;
             let bananaAmount = document.getElementById("banana-qty").value;
 
-            if (isNaN(appleAmount+orangeAmount+bananaAmount) || (appleAmount < 0) || (orangeAmount < 0) || (bananaAmount < 0)){
+            if (!(parseInt(inputCheck)-inputCheck == 0) || (inputCheck < 0)){
                 document.getElementById("total-amount").innerHTML = "NaN";
                 document.getElementById("input-alert").className = "alert alert-danger";
                 validPrice = false;
