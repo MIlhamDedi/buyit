@@ -18,12 +18,12 @@
             <div class="bg-dark p-4">
                 <div class="row">
                     <div class="col-sm">
-                        <h5 class="text-white h1">Muhammad Ilham Dedi</h5>
+                        <h5 id="student-info" class="text-white h1">Muhammad Ilham Dedi</h5>
                         <span class="text-muted h3">U1620128B</span>
-                        <h2>TS1 - CZ3006 NET CENTRIC COMPUTING</h2>
                     </div>
-                    <div class="col-sm">
-                        <img src="https://media.licdn.com/dms/image/C4D03AQGyPyVwfb1V3g/profile-displayphoto-shrink_200_200/0?e=1527890400&v=alpha&t=I_nLKywT95jdiOCago2gJzbRdGfQlfoIdaaO5Er2BhQ" class="img-fluid float-right" alt="Responsive image">
+                    <div class="col-sm" style="text-align: right;">
+                        <h2>TS1 - CZ3006 NET CENTRIC COMPUTING</h2>
+                        <span class="text-muted h3">Assignment 2</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
         <nav class="navbar navbar-light bg-white sticky-top shadow-sm p-3 mb-5">
             <a class="navbar-brand" href="#"><b style="color: #00ce8f; font-family: 'Pacifico', cursive; font-size: 40px; padding: 40px">BuyIt</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg/1200px-Nanyang_Technological_University_coat_of_arms_vector.svg.png" width="30"  class="d-inline-block align-top" alt="">
+                <a href="#student-info"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Nanyang_Technological_University_coat_of_arms_vector.svg/1200px-Nanyang_Technological_University_coat_of_arms_vector.svg.png" width="30"  class="d-inline-block align-top" alt="NTU"></a>
             </button>
         </nav>
     </div>
@@ -50,7 +50,7 @@
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
                           <div id="apple-img" class="carousel-item active">
-                            <img class="d-block w-100" src="http://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" alt="First slide">
+                            <img class="d-block w-100" src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>...</h5>
                                 <p>...</p>
@@ -64,7 +64,7 @@
                             </div>
                           </div>
                           <div id="banana-img" class="carousel-item">
-                            <img class="d-block w-100" src="http://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" alt="Third slide">
+                            <img class="d-block w-100" src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" alt="Third slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>...</h5>
                                 <p>...</p>
@@ -82,37 +82,47 @@
                     </div>
             </div>
             <div class="col-sm-3" style="background-color: whitesmoke; padding: 1%; padding-top: 2%" >
-                <form action="">
+                <form action="index.php" method="POST">
                     <h1 id="product-name" >Apple @ $0.69</h1>
                     <div class="card-group">
                         <div class="card" style="padding: 2%">
                             <p style="text-align: center">Apple</p>
-                            <img src="http://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" width="100%">
+                            <img src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="apple-qty" placeholder="0" oninput="updateAmount();enableButton()" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
+                                <input type="text" class="form-control form-control-sm" id="apple-qty" name="apple-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
                             </div>
                         </div>
                         <div class="card" style="padding: 2%">
                             <p style="text-align: center">Orange</p>
                             <img src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="orange-qty" placeholder="0" oninput="updateAmount();enableButton()" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
+                                <input type="text" class="form-control form-control-sm" id="orange-qty" name="orange-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
                             </div>
                         </div>
                         <div class="card" style="padding: 2%">
                             <p style="text-align: center">Banana</p>
-                            <img src="http://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" width="100%">
+                            <img src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="banana-qty" placeholder="0" oninput="updateAmount();enableButton()" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
+                                <input type="text" class="form-control form-control-sm" id="banana-qty" name="banana-qty" placeholder="0" value="0" oninput="updateAmount();enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
                             </div>
                         </div>
+                    </div>
+
+                    
+
+                    <br>
+                    
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm" >Name</span>
+                        </div>
+                        <input name="name" id="username" type="text" class="form-control" placeholder="one word char-only name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" oninput="validateName(this.value);enableButton();">
                     </div>
 
                     <div id="input-alert" class="alert alert-danger collapse" role="alert" style="margin: 2%; text-align: center">
                         Invalid Input.
                     </div>
 
-                    <br>
 
                     <div class="card" style="width: 100%;">
                         <div class="card-body">
@@ -125,43 +135,18 @@
                                         <img src="http://holmeswreckerservice.com/wp-content/uploads/2012/11/visa-mastercard-discover-logo.jpg" width="100%" >
                                     </div>
                                     <div class="col-4" style="text-align: center">
-                                        <input id="pay-method" type="radio" name="pay-method" value="visa" onclick="enableButton()" />
+                                        <input id="pay-method" type="radio" name="pay-method" value="visa" onclick="payMethodSelected=true;enableButton();" />
                                     </div>
                                     <div class="col-4" style="text-align: center">
-                                        <input id="pay-method" type="radio" name="pay-method" value="mastercard" onclick="enableButton()" />
+                                        <input id="pay-method" type="radio" name="pay-method" value="mastercard" onclick="payMethodSelected=true;enableButton();" />
                                     </div>
                                     <div class="col-4" style="text-align: center">
-                                        <input id="pay-method" type="radio" name="pay-method" value="discover" onclick="enableButton()" />
+                                        <input id="pay-method" type="radio" name="pay-method" value="discover" onclick="payMethodSelected=true;enableButton();" />
                                     </div>
                                 </div>
                                 <br>
                                 <div style="text-align: center">
-                                    <button id="submit-button" type="button" class="btn btn-md" style="background-color: #00ce8f; color: white; text-align: center" data-toggle="modal" data-target="#exampleModal" disabled>Submit</button>
-                                </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Thank You For The Purchase!</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                        <div class="modal-body">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Apple</li>
-                                                    <li class="list-group-item">Orange</li>
-                                                    <li class="list-group-item">Banana</li>
-                                                    <li class="list-group-item" style="background-color: #00ce8f; color: snow">Total</li>
-                                                  </ul>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Close</button>
-                                        </div>
-                                    </div>
-                                    </div>
+                                    <button id="submit-button" name="submit" value="Submit" type="submit" class="btn btn-md" style="background-color: #00ce8f; color: white; text-align: center" data-toggle="modal" data-target="#exampleModal" disabled>Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -190,29 +175,44 @@
         let applePrice = 69;
         let orangePrice = 59;
         let bananaPrice = 39;
-        var validPrice = false;
+        let validNameRegex = /^[A-Za-z]+$/;
+        var validPrice = true;
+        var payMethodSelected = false;
+        var nameValid = false;
+
+        function validateName(inputName) {
+            if (inputName.match(validNameRegex)){
+                document.getElementById("input-alert").className = "alert alert-danger collapse";
+                nameValid = true;
+            }
+            else {
+                document.getElementById("input-alert").className = "alert alert-danger";
+                nameValid = false;
+            }
+        }
 
         function updateAmount() {
             document.getElementById("welcome-msg").className = "alert alert-success collapse";   
             let appleAmount = document.getElementById("apple-qty").value;
-            let orangAmount = document.getElementById("orange-qty").value;
+            let orangeAmount = document.getElementById("orange-qty").value;
             let bananaAmount = document.getElementById("banana-qty").value;
 
-            if (isNaN(appleAmount+orangAmount+bananaAmount)){
+            if (isNaN(appleAmount+orangeAmount+bananaAmount) || (appleAmount < 0) || (orangeAmount < 0) || (bananaAmount < 0)){
                 document.getElementById("total-amount").innerHTML = "NaN";
                 document.getElementById("input-alert").className = "alert alert-danger";
                 validPrice = false;
             }
             else {
-                document.getElementById("total-amount").innerHTML = "$"+(((appleAmount*applePrice+orangAmount*orangePrice+bananaAmount*bananaPrice)/100).toFixed(2));
+                document.getElementById("total-amount").innerHTML = "$"+(((appleAmount*applePrice+orangeAmount*orangePrice+bananaAmount*bananaPrice)/100).toFixed(2));
                 document.getElementById("input-alert").className = "alert alert-danger collapse";
                 validPrice = true;
-                document.getElementById("invoice").innerHTML = "";
             }
         }
 
+
+
         function enableButton() {
-            if (validPrice && $('input[name=pay-method]:checked').length){
+            if (validPrice && payMethodSelected && nameValid){
                 document.getElementById("submit-button").disabled = false;
             }
             else {
