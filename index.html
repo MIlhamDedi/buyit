@@ -50,25 +50,13 @@
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
                           <div id="apple-img" class="carousel-item active">
-                            <img class="d-block w-100" src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
+                            <img class="d-block w-100" src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" alt="Apples">
                           </div>
                           <div id="orange-img" class="carousel-item">
-                            <img class="d-block w-100" src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
+                            <img class="d-block w-100" src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" alt="Oranges">
                           </div>
                           <div id="banana-img" class="carousel-item">
-                            <img class="d-block w-100" src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
+                            <img class="d-block w-100" src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" alt="Bananas">
                           </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -85,25 +73,25 @@
                 <form action="index.php" method="POST">
                     <h1 id="product-name" >Apple @ $0.69</h1>
                     <div class="card-group">
-                        <div class="card" style="padding: 2%">
+                        <div class="card" style="padding: 2%" onmouseover="$('.carousel').carousel(0);$('.carousel').carousel('pause');">
                             <p style="text-align: center">Apple</p>
-                            <img src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" width="100%">
+                            <img src="https://www.macdentalcare.com/pub/photo/2014-09-apple.jpg" alt="apples" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="apple-qty" name="apple-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
+                                <input type="text" class="form-control form-control-sm" id="apple-qty" name="apple-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="if(this.value==''){this.value=0;updateAmount(0);};enableButton();" onfocus="$('.carousel').carousel(0);$('.carousel').carousel('pause');highlightOn('apple')">
                             </div>
                         </div>
-                        <div class="card" style="padding: 2%">
+                        <div class="card" style="padding: 2%" onmouseover="$('.carousel').carousel(1);$('.carousel').carousel('pause');">
                             <p style="text-align: center">Orange</p>
-                            <img src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" width="100%">
+                            <img src="https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg" alt="oranges" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="orange-qty" name="orange-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
+                                <input type="text" class="form-control form-control-sm" id="orange-qty" name="orange-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="if(this.value==''){this.value=0;updateAmount(0);};enableButton();" onfocus="$('.carousel').carousel(1);$('.carousel').carousel('pause');highlightOn('orange')">
                             </div>
                         </div>
-                        <div class="card" style="padding: 2%">
+                        <div class="card" style="padding: 2%" onmouseover="$('.carousel').carousel(2);$('.carousel').carousel('pause');">
                             <p style="text-align: center">Banana</p>
-                            <img src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" width="100%">
+                            <img src="https://healtheatingfood.com/wp-content/uploads/2015/08/Fresh-Banana-substances.jpg" alt="bananas" width="100%">
                             <div class="card-body">
-                                <input type="text" class="form-control form-control-sm" id="banana-qty" name="banana-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="enableButton();" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
+                                <input type="text" class="form-control form-control-sm" id="banana-qty" name="banana-qty" placeholder="0" value="0" oninput="updateAmount(this.value);enableButton()" onblur="if(this.value==''){this.value=0;updateAmount(0);};enableButton();" onfocus="$('.carousel').carousel(2);$('.carousel').carousel('pause');highlightOn('banana')">
                             </div>
                         </div>
                     </div>
@@ -127,12 +115,18 @@
                     <div class="card" style="width: 100%;">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center">Amount To Pay:</h5>
-                            <h1 id="total-amount" class="card-subtitle mb-2" style="color: #00ce8f; font-size: 50px; text-align: center">$0.00</h1>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span style="color: #00ce8f; font-size: 50px; text-align: center" class="input-group-text">$</span>
+                                </div>
+                                <input id="total-amount" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" style="color: #00ce8f; font-size: 50px; text-align: center" value="0.00" onfocus="this.blur()">
+                              </div>
+                            <!-- <h1 id="total-amount" class="card-subtitle mb-2" style="color: #00ce8f; font-size: 50px; text-align: center">$0.00</h1> -->
                             <p class="card-text" style="text-align: center">Choose Payment Method:</p>
                             <div class="container">
                                 <div class="row">
                                     <div>
-                                        <img src="http://holmeswreckerservice.com/wp-content/uploads/2012/11/visa-mastercard-discover-logo.jpg" width="100%" >
+                                        <img src="http://holmeswreckerservice.com/wp-content/uploads/2012/11/visa-mastercard-discover-logo.jpg" alt="visa mastercard discover" width="100%" >
                                     </div>
                                     <div class="col-4" style="text-align: center">
                                         <input id="pay-method" type="radio" name="pay-method" value="visa" onclick="payMethodSelected=true;enableButton();" />
@@ -198,12 +192,12 @@
             let bananaAmount = document.getElementById("banana-qty").value;
 
             if (!(parseInt(inputCheck)-inputCheck == 0) || (inputCheck < 0)){
-                document.getElementById("total-amount").innerHTML = "NaN";
+                document.getElementById("total-amount").value = "NaN";
                 document.getElementById("input-alert").className = "alert alert-danger";
                 validPrice = false;
             }
             else {
-                document.getElementById("total-amount").innerHTML = "$"+(((appleAmount*applePrice+orangeAmount*orangePrice+bananaAmount*bananaPrice)/100).toFixed(2));
+                document.getElementById("total-amount").value = "$"+(((appleAmount*applePrice+orangeAmount*orangePrice+bananaAmount*bananaPrice)/100).toFixed(2));
                 document.getElementById("input-alert").className = "alert alert-danger collapse";
                 validPrice = true;
             }
